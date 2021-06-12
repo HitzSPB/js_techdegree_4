@@ -2,12 +2,13 @@
  * Project 4 - OOP Game App
  * app.js */
 
-const game = new Game();
+let game;
 
 // Listens on the event button click on the overlay screen. Once the event have been triggered it starts the game 
 document.querySelector("#btn__reset").addEventListener("click", function()
 {
- game.startGame();
+    game = new Game();
+    game.startGame();
 });
 
 // Adds a event listener to the entire onscreen keyboard but only calls the handleInteraction upon click on a element with classname key
