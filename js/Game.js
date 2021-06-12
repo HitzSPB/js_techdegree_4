@@ -71,6 +71,7 @@ class Game {
     // Displays a message depending if is a win or loss
     gameOver(victory){
         let overlay = document.querySelector("#overlay");
+        overlay.className = ""; // Clear in case this is not the first game. Otherwise it will stay the lost color after loosing first time.
         let gameMessage = document.querySelector("#game-over-message");
         overlay.style.display = "";
         if (victory) {
