@@ -26,7 +26,7 @@ class Phrase {
         }
     }
     checkLetter(character){
-        if (this.phrase.includes(character)) {
+        if (this.phrase.toLocaleLowerCase().includes(character)) {
             return true;
         } else {
             return false;

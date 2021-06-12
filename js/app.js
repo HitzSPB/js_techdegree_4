@@ -4,12 +4,13 @@
 
 const game = new Game();
 
+// Listens on the event button click on the overlay screen. Once the event have been triggered it starts the game 
 document.querySelector("#btn__reset").addEventListener("click", function()
 {
  game.startGame();
 });
 
-
+// Adds a event listener to the entire onscreen keyboard but only calls the handleInteraction upon click on a element with classname key
 document.querySelector("#qwerty").addEventListener('click',(event)=>{
     if (event.target.className==="key"){
     console.log(event.target);
@@ -19,6 +20,7 @@ document.querySelector("#qwerty").addEventListener('click',(event)=>{
     }
 });
 
+// Captures key press input from keyboard
 document.addEventListener('keydown', x => {
     document.querySelectorAll("#qwerty .keyrow .key").forEach( a => {
         if(a.textContent === x.key)

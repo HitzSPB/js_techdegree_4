@@ -9,16 +9,20 @@ class Game {
         this.phrases = this.createPhrases();
         this.activePhrase = null;
     }
+
+    // Contains the array of phrases
     createPhrases()
     {
         return [ new Phrase("This is a game"), new Phrase("TeamTreeHouse JS exam"), new Phrase("We will make it"), new Phrase("This is a test app"), new Phrase("Game show app")]
     };
 
+    // Calculates the length of the array and finds the min and max values to select a random array. The value will never reach the actual count of the array as we use the floor method to always take the lower number what is perfect as array starts with index 0
     getRandomPhrase() {
         const getRandomNubmerWithinRange = Math.floor(Math.random() * this.phrases.length);
         return this.phrases[getRandomNubmerWithinRange];
     };
 
+    // Starts the game by removing overlay, and add one of the phrases to the display
     startGame(){
         document.querySelector("#overlay").style.display = "none";
         this.getRandomPhrase();
@@ -26,6 +30,7 @@ class Game {
         this.activePhrase.addhPraseToDisplay();
     };
 
+    // Handle all the events when a keyboard or on-screen key is pressed
     handleInteraction(character) {
         character.disabled = true;
         if(this.activePhrase.checkLetter(character.textContent)){
@@ -41,13 +46,15 @@ class Game {
 
         }
     }
+
+    // Checks if there is any li.hide elements left
     checkForWin(){
   // checking if <li> elements have a class 'hide letter'
-        if (document.querySelectorAll("#phrase li.hide").length !== 0) {
-            return false;
+        if (document.querySelectorAll("#phrase li.show").length === game.activePhrase.phrase.replace(/\s/g, "").length) {
+            return true;
         } 
         else {
-            return true;
+            return false;
         }
     }
     removeLife() {
