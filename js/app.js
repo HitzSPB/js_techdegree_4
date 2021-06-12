@@ -24,8 +24,9 @@ document.querySelector("#qwerty").addEventListener('click',(event)=>{
 // Captures key press input from keyboard
 document.addEventListener('keydown', x => {
     document.querySelectorAll("#qwerty .keyrow .key").forEach( a => {
-        if(a.textContent === x.key)
+        if(a.textContent === x.key && !a.disabled)
         {
+            console.log(a);
             game.handleInteraction(a);
         }
         });
