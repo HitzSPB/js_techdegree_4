@@ -74,9 +74,9 @@ class Game {
 
     resetGame(){
         this.missed = 0;
-        document.querySelector('#phrase ul').innerHTML = "";
-        document.querySelectorAll('img').forEach(x => x.src = "images/liveHeart.png")
-        document.querySelectorAll('#qwerty button').forEach(x => {
+        document.querySelector("#phrase ul").innerHTML = "";
+        document.querySelectorAll("img").forEach(x => x.src = "images/liveHeart.png")
+        document.querySelectorAll("#qwerty button").forEach(x => {
                 x.disabled = false;
                 x.className = "key";
             }
