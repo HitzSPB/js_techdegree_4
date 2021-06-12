@@ -8,7 +8,6 @@ let game;
 document.querySelector("#btn__reset").addEventListener("click", function()
 {
     game = new Game();
-    game.resetGame();
     game.startGame();
 });
 
