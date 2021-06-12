@@ -47,7 +47,7 @@ class Game {
         }
     }
 
-    // Checks if there is any li.hide elements left
+    // Checks if li.show elements equal the length of the active phrase without space to return if wincondition have been met
     checkForWin(){
   // checking if <li> elements have a class 'hide letter'
         if (document.querySelectorAll("#phrase li.show").length === game.activePhrase.phrase.replace(/\s/g, "").length) {
@@ -57,6 +57,8 @@ class Game {
             return false;
         }
     }
+
+    // Changes the heart image and adds 1 to missed count
     removeLife() {
         let lifeImages = Array.from(document.querySelectorAll('img')).reverse();
         lifeImages[this.missed].src="images/lostHeart.png"
@@ -65,6 +67,8 @@ class Game {
             this.gameOver(false);
         }
     }
+
+    // Displays a message depending if is a win or loss
     gameOver(victory){
         let overlay = document.querySelector("#overlay");
         let gameMessage = document.querySelector("#game-over-message");
@@ -79,6 +83,7 @@ class Game {
         this.resetGame();
     }
 
+    // Resets the game values to default to play the game again
     resetGame(){
         this.missed = 0;
         document.querySelector("#phrase ul").innerHTML = "";

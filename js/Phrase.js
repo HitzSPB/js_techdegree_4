@@ -7,6 +7,7 @@ class Phrase {
         this.phrase = phrase;
     }
 
+    // Adds the phrase into list items to display them on the screen
     addhPraseToDisplay(){
         for (let i = 0; i < this.phrase.length; i++) {
             const liElement = document.createElement('li');
@@ -25,6 +26,8 @@ class Phrase {
             document.querySelector("#phrase ul").appendChild(liElement);
         }
     }
+
+    // Checks if the phrase contains the selected character
     checkLetter(character){
         if (this.phrase.toLocaleLowerCase().includes(character)) {
             return true;
@@ -33,6 +36,8 @@ class Phrase {
         }
 
     }
+    
+    // Reveals all the characters in the phrase that equals the chosen one.
     showMatchedLetter(character){
         document.querySelectorAll('#phrase li').forEach(x => {
             if(x.textContent.toLocaleLowerCase() === character)
