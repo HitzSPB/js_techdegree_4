@@ -8,12 +8,13 @@ let game;
 document.querySelector("#btn__reset").addEventListener("click", function()
 {
     game = new Game();
+    game.resetGame();
     game.startGame();
 });
 
 // Adds a event listener to the entire onscreen keyboard but only calls the handleInteraction upon click on a element with classname key
 document.querySelector("#qwerty").addEventListener('click',(event)=>{
-    if (event.target.className==="key"){
+    if (event.target.className==="key"){    
     console.log(event.target);
         if (event.target.className==="key"){
             game.handleInteraction(event.target);
